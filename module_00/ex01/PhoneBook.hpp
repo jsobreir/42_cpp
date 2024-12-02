@@ -5,16 +5,17 @@
 
 class PhoneBook {
 	private:
-		int		_num_entries;
+		int		_numEntries;
     public:
         Contact array[8];
         PhoneBook();
         ~PhoneBook();
-        void    addContact(Contact *contact, int index);
-        void    searchContact(Contact *array);
+        void    addContact(Contact *contact, int &index);
+        void    searchContact(Contact *array, int _numEntries);
 
 		// Setter
-		void	setNumEntries(int num_entries) { _num_entries = num_entries; };
+		void	setNumEntries(int num_entries) { _numEntries = num_entries; };
+		int getNumEntries(void) const { return _numEntries; }
 } ;
 
 #endif

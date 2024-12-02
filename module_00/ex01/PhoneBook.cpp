@@ -1,23 +1,29 @@
 #include "phonebook.h"
 
 PhoneBook::PhoneBook() {
-	_num_entries = 0;
+	_numEntries = 0;
 }
 
 PhoneBook::~PhoneBook() {
 	return ;
 }
 std::string	getUserInput(std::string	input) {
-	while (input.size() == 0)
-		getline(std::cin, input);
-	return input;
+	while (true) {
+	    std::getline(std::cin, input);
+	    input.erase(0, input.find_first_not_of(" \t\n\r"));
+	    input.erase(input.find_last_not_of(" \t\n\r") + 1);
+	    if (!input.empty())
+	        break;
+		return input;
+	}
 }
 
-void    PhoneBook::addContact(Contact *contact, int index) {
+void    PhoneBook::addContact(Contact *contact, int &index) {
     std::string      f_name, l_name, n_name, p_number, d_secret;
 
     std::cout << "Creating a new contact." << std::endl;
     std::cout << "First Name:" << std::endl;
+	index = (index + 1) % 8;
 	contact[index].setIndex(index);
     f_name = getUserInput(f_name);
     contact[index].setFirstName(f_name);
@@ -56,10 +62,10 @@ void	print_search(std::string print) {
 	return ;
 }
 
-static void	print_all(Contact *array, int _num_entries) {
+static void	print_all(Contact *array, int _numEntries) {
 	std::ostringstream str1;
 
-	for (int idx = 0; idx < _num_entries; idx++)
+	for (int idx = 0; idx < _numEntries; idx++)
 	{
 		std::ostringstream str1;
 		str1 << array[idx].getIndex();
@@ -72,12 +78,12 @@ static void	print_all(Contact *array, int _num_entries) {
 	}
 }
 
-void    PhoneBook::searchContact(Contact *array) {
+void    PhoneBook::searchContact(Contact *array, int _numEntries) {
 	int	index = -1;
 	std::ostringstream str1;
 	bool print = true;
 
-	print_all(array, _num_entries);
+	print_all(array, _numEntries);
 	std::cout << "Enter the index:";
 	while (index < 0)
 	{
@@ -90,7 +96,7 @@ void    PhoneBook::searchContact(Contact *array) {
 			break ;
 		}
 	}
-	if (index < _num_entries && print == true)
+	if (index < _numEntries && print == true)
 	{
 		str1 << array[index].getIndex();
 		std::string idx = str1.str();
