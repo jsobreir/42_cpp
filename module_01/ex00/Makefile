@@ -1,4 +1,4 @@
-CC = g++
+CC = c++
 
 SRC = main.cpp newZombie.cpp randomChump.cpp Zombie.cpp
 

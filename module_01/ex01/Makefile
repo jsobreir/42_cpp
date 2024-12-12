@@ -1,4 +1,4 @@
-CC = g++
+CC = c++
 
 SRC = main.cpp Zombie.cpp ZombieHorde.cpp
 
