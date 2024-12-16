@@ -1,0 +1,58 @@
+
+-------------TESTE1------------------
+ClapTrap Name constructor called
+ClapTrap Name constructor called
+ScavTrap Name constructor called
+ClapTrap shrek attacks kratos, causing 0 points of damage!
+ClapTrap Kratos takes 0 points of damage!
+ClapTrap Kratos is repaired by 0 points!
+ScavTrap Kratos attacks shrek, causing 20 points of damage!
+ClapTrap shrek takes 20 points of damage!
+ClapTrap shrek has no hit points to repair!
+ScavTrap Kratos is now in Gate keeper mode!
+ScavTrap Destructor called
+ClapTrap Destructor called
+ClapTrap Destructor called
+
+-------------TESTE2------------------
+ClapTrap Default constructor called
+ClapTrap Name constructor called
+ClapTrap Name constructor called
+ScavTrap Name constructor called
+ClapTrap Name constructor called
+ScavTrap Name constructor called
+ClapTrap Palagoso attacks ClapTrap, causing 0 points of damage!
+ClapTrap ClapTrap takes 5 points of damage!
+ClapTrap ClapTrap is repaired by 5 points!
+ScavTrap IDK attacks IDK2, causing 20 points of damage!
+ClapTrap IDK2 takes 80 points of damage!
+ClapTrap IDK2 is repaired by 80 points!
+ScavTrap IDK2 is now in Gate keeper mode!
+ScavTrap Destructor called
+ClapTrap Destructor called
+ScavTrap Destructor called
+ClapTrap Destructor called
+ClapTrap Destructor called
+ClapTrap Destructor called
+
+-------------TESTE3------------------
+ClapTrap Name constructor called
+ClapTrap El Primo takes 5 points of damage!
+ClapTrap El Primo is repaired by 5 points!
+ClapTrap El Primo attacks Sipder Man, causing 0 points of damage!
+ClapTrap El Primo takes 5 points of damage!
+ClapTrap El Primo is repaired by 5 points!
+ClapTrap El Primo attacks Sipder Man, causing 0 points of damage!
+ClapTrap El Primo takes 5 points of damage!
+ClapTrap El Primo is repaired by 5 points!
+ClapTrap El Primo attacks Sipder Man, causing 0 points of damage!
+ClapTrap El Primo takes 5 points of damage!
+ClapTrap El Primo is repaired by 5 points!
+ClapTrap El Primo attacks Sipder Man, causing 0 points of damage!
+ClapTrap El Primo takes 5 points of damage!
+ClapTrap El Primo is repaired by 5 points!
+ClapTrap El Primo attacks Sipder Man, causing 0 points of damage!
+ClapTrap El Primo takes 5 points of damage!
+ClapTrap El Primo has no energy points to repair!
+ClapTrap El Primo has no energy points to attack!
+ClapTrap Destructor called

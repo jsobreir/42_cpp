@@ -1,8 +1,8 @@
 CC = c++
 
-SRC = main.cpp Fixed.cpp
+SRC = main.cpp Animal.cpp Cat.cpp Dog.cpp
 
-NAME = fixed
+NAME = animal
 
 FLAGS =  -std=c++98 -g -Wall -Wextra -Werror -o
 

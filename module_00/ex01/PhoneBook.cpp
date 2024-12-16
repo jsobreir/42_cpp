@@ -13,9 +13,9 @@ std::string	getUserInput(std::string	input) {
 	    input.erase(0, input.find_first_not_of(" \t\n\r"));
 	    input.erase(input.find_last_not_of(" \t\n\r") + 1);
 	    if (!input.empty())
-	        break;
-		return input;
+			break;
 	}
+	return input;
 }
 
 void    PhoneBook::addContact(Contact *contact, int &index) {

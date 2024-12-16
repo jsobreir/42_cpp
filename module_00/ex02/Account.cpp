@@ -8,7 +8,6 @@ int Account::_totalAmount = 0;
 int Account::_totalNbDeposits = 0;
 int Account::_totalNbWithdrawals = 0;
 
-
 Account::Account( int initial_deposit ){
 	_nbAccounts += 1;
 	_amount = initial_deposit;
@@ -112,3 +111,20 @@ bool	Account::makeWithdrawal( int withdrawal ) {
 	std::cout << _nbWithdrawals << std::endl;
 	return (true);
 }
+
+int	Account::getNbAccounts( void ) {
+	return _nbAccounts;
+}
+
+int	Account::getTotalAmount( void ) {
+	return _totalAmount;
+}
+
+int	Account::getNbDeposits( void ) {
+	return _totalNbDeposits;
+}
+
+int	Account::getNbWithdrawals( void ) {
+	return _totalNbWithdrawals;
+}
+

@@ -1,10 +1,10 @@
-CC = g++
+CC = c++
 
-SRC = megaphone.cpp
+SRC = main.cpp ClapTrap.cpp
 
-NAME = megaphone
+NAME = claptrap
 
-FLAGS =  -g -std=c++98 -Wall -Wextra -Werror -o
+FLAGS =  -std=c++98 -g -Wall -Wextra -Werror -o
 
 all: $(SRC)
 	$(CC) $(SRC) $(FLAGS) $(NAME)

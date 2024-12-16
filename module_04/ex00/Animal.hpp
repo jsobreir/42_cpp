@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsobreir <jsobreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/16 15:30:59 by jsobreir          #+#    #+#             */
-/*   Updated: 2024/12/16 15:34:27 by jsobreir         ###   ########.fr       */
+/*   Created: 2024/12/16 18:12:34 by jsobreir          #+#    #+#             */
+/*   Updated: 2024/12/16 19:41:37 by jsobreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#pragma once
 
-int main (void) {
-	Fixed a;
-	Fixed b(a);
-	Fixed c;
+#include <iostream>
 
-	c = b;
-	std::cout << a.getRawBits() << std::endl;
-	std::cout << b.getRawBits() << std::endl;
-	std::cout << c.getRawBits() << std::endl;
-}
+class Animal {
+	protected:
+		std::string _type;
+	public:
+		Animal();
+		Animal(std::string type);
+		Animal(const Animal &animal);
+		Animal operator=(Animal const &animal);
+		~Animal();
+		void makeSound(void) const ;
+		std::string getType(void) const;
+} ;

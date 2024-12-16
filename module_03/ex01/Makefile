@@ -1,8 +1,8 @@
 CC = c++
 
-SRC = main.cpp Fixed.cpp
+SRC = main.cpp ClapTrap.cpp ScavTrap.cpp
 
-NAME = fixed
+NAME = scavtrap
 
 FLAGS =  -std=c++98 -g -Wall -Wextra -Werror -o
 

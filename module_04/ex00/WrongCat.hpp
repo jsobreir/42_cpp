@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsobreir <jsobreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/16 15:30:59 by jsobreir          #+#    #+#             */
-/*   Updated: 2024/12/16 15:34:27 by jsobreir         ###   ########.fr       */
+/*   Created: 2024/12/16 18:22:17 by jsobreir          #+#    #+#             */
+/*   Updated: 2024/12/16 19:50:52 by jsobreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#pragma once
 
-int main (void) {
-	Fixed a;
-	Fixed b(a);
-	Fixed c;
+#include <iostream>
+#include "WrongAnimal.hpp"
 
-	c = b;
-	std::cout << a.getRawBits() << std::endl;
-	std::cout << b.getRawBits() << std::endl;
-	std::cout << c.getRawBits() << std::endl;
-}
+class WrongCat: public WrongAnimal {
+	protected:
+		std::string _type;
+	public:
+		WrongCat();
+		WrongCat(const WrongCat &wrongCat);
+		WrongCat operator=(WrongCat const &wrongCat);
+		~WrongCat();
+		void makeSound(void) const ;
+		std::string getType(void) const ;
+} ;

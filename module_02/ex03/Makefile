@@ -1,8 +1,8 @@
 CC = c++
 
-SRC = main.cpp Fixed.cpp
+SRC = main.cpp bsp.cpp Fixed.cpp Point.cpp
 
-NAME = fixed
+NAME = bsp
 
 FLAGS =  -std=c++98 -g -Wall -Wextra -Werror -o
 
