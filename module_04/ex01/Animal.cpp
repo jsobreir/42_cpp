@@ -6,16 +6,19 @@
 /*   By: jsobreir <jsobreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 18:22:17 by jsobreir          #+#    #+#             */
-/*   Updated: 2024/12/17 10:22:40 by jsobreir         ###   ########.fr       */
+/*   Updated: 2024/12/17 13:26:01 by jsobreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 Animal::Animal() {
+	std::cout << "Animal created!" << std::endl;
 }
 
-Animal::Animal(std::string type) : _type(type) {	
+Animal::Animal(std::string type) : _type(type) {
+	std::cout << "Animal of type " << _type << " created!" << std::endl;
 }
 
 Animal::Animal(const Animal &animal) {
@@ -30,6 +33,7 @@ Animal Animal::operator=(Animal const &animal) {
 }
 
 Animal::~Animal() {
+	std::cout << "Animal destroyed!" << std::endl;
 }
 
 void Animal::makeSound(void) const {

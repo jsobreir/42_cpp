@@ -6,7 +6,7 @@
 /*   By: jsobreir <jsobreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 18:22:17 by jsobreir          #+#    #+#             */
-/*   Updated: 2024/12/16 19:50:40 by jsobreir         ###   ########.fr       */
+/*   Updated: 2024/12/17 10:06:42 by jsobreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,3 @@ class WrongAnimal {
 		void makeSound(void) const ;
 		std::string getType(void) const;
 } ;
-

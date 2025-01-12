@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsobreir <jsobreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/16 18:19:08 by jsobreir          #+#    #+#             */
-/*   Updated: 2024/12/17 14:48:11 by jsobreir         ###   ########.fr       */
+/*   Created: 2024/12/16 18:12:34 by jsobreir          #+#    #+#             */
+/*   Updated: 2024/12/17 11:47:00 by jsobreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#pragma once
 
-Cat::Cat() : Animal("Cat"), _type("Cat") {
-}
+#include <iostream>
+#include "Animal.hpp"
+#include "Brain.hpp"
 
-Cat::Cat(const Cat &cat) : Animal("Cat") {
-	*this = cat;
-}
-
-Cat Cat::operator=(Cat const &cat) {
-	if (this != &cat) {
-		_type = cat._type;
-	}
-	return *this;
-}
-
-Cat::~Cat() {
-}
-
-void Cat::makeSound(void) const {
-	std::cout << "miau miau" << std::endl;
-}
-
-std::string Cat::getType(void) const {
-	return _type;
-}
+class Cat: public Animal {
+	protected:
+		std::string _type;
+	public:
+		Cat();
+		Cat(const Cat &cat);
+		Cat operator=(Cat const &cat);
+		~Cat();
+		void makeSound(void) const ;
+		std::string getType(void) const ;
+	private:
+		Brain *_brain;
+} ;

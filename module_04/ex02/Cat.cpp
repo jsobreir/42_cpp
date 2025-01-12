@@ -6,27 +6,34 @@
 /*   By: jsobreir <jsobreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 18:19:08 by jsobreir          #+#    #+#             */
-/*   Updated: 2024/12/17 14:48:11 by jsobreir         ###   ########.fr       */
+/*   Updated: 2024/12/17 16:25:27 by jsobreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat() : Animal("Cat"), _type("Cat") {
+Cat::Cat() : AAnimal(), _type("Cat") {
+	_brain = new Brain;
+	std::cout << "Cat with brain created!" << std::endl;
 }
 
-Cat::Cat(const Cat &cat) : Animal("Cat") {
-	*this = cat;
+Cat::Cat(const Cat &cat) : AAnimal(), _brain(new Brain(*cat._brain)) {
+	_type = cat._type;
 }
 
 Cat Cat::operator=(Cat const &cat) {
 	if (this != &cat) {
 		_type = cat._type;
+		if (_brain) delete _brain;
+		_brain = new Brain;
+		*this->_brain = *cat._brain;
 	}
 	return *this;
 }
 
 Cat::~Cat() {
+	delete _brain;
+	std::cout << "Cat with brain destroyed!" << std::endl;
 }
 
 void Cat::makeSound(void) const {

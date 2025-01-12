@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsobreir <jsobreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/16 18:19:08 by jsobreir          #+#    #+#             */
-/*   Updated: 2024/12/17 14:48:11 by jsobreir         ###   ########.fr       */
+/*   Created: 2025/01/09 12:26:57 by jsobreir          #+#    #+#             */
+/*   Updated: 2025/01/11 16:35:39 by jsobreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#pragma once
 
-Cat::Cat() : Animal("Cat"), _type("Cat") {
-}
+#include <iostream>
+#include "AMateria.hpp"
 
-Cat::Cat(const Cat &cat) : Animal("Cat") {
-	*this = cat;
-}
-
-Cat Cat::operator=(Cat const &cat) {
-	if (this != &cat) {
-		_type = cat._type;
-	}
-	return *this;
-}
-
-Cat::~Cat() {
-}
-
-void Cat::makeSound(void) const {
-	std::cout << "miau miau" << std::endl;
-}
-
-std::string Cat::getType(void) const {
-	return _type;
-}
+class Cure: public AMateria
+{
+	protected:
+		std::string	_type;
+	
+	public:
+		Cure();
+		Cure(std::string const & type);
+		Cure(const Cure &cure);
+		Cure &operator=(Cure const &cure);
+		std::string const & getType() const; //Returns the Cure type
+		Cure* clone() const;
+		void use(ICharacter& target);
+};

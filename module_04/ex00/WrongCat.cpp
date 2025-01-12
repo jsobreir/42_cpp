@@ -6,7 +6,7 @@
 /*   By: jsobreir <jsobreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 18:22:17 by jsobreir          #+#    #+#             */
-/*   Updated: 2024/12/16 19:50:22 by jsobreir         ###   ########.fr       */
+/*   Updated: 2024/12/17 10:22:58 by jsobreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ WrongCat WrongCat::operator=(WrongCat const &wrongCat) {
 WrongCat::~WrongCat() {
 }
 
-// void WrongCat::makeSound(void) const {
-// 	std::cout << "miau miau" << std::endl;
-// }
+void WrongCat::makeSound(void) const {
+	std::cout << "miau miau" << std::endl;
+}
 
 std::string WrongCat::getType(void) const {
 	return _type;

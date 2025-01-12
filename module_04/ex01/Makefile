@@ -1,14 +1,15 @@
 CC = c++
 
-SRC = 
+SRC = main.cpp Animal.cpp Cat.cpp Dog.cpp Brain.cpp
 
-NAME = 
+NAME = animal
 
 FLAGS =  -std=c++98 -g -Wall -Wextra -Werror -o
 
-all: $(SRC)
-	$(CC) $(SRC) $(FLAGS) $(NAME)
+all: $(NAME)
 
+$(NAME): $(SRC)
+	$(CC) $(SRC) $(FLAGS) $(NAME)
 fclean:
 	rm -rf $(NAME)
 

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal copy 2.cpp                             :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsobreir <jsobreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 18:22:17 by jsobreir          #+#    #+#             */
-/*   Updated: 2024/12/16 19:50:03 by jsobreir         ###   ########.fr       */
+/*   Updated: 2024/12/17 10:05:40 by jsobreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,7 @@ WrongAnimal::~WrongAnimal() {
 }
 
 void WrongAnimal::makeSound(void) const {
-	if (_type == "Dog")
-		std::cout << "au au au" << std::endl;
-	else
-		std::cout << "miau miau" << std::endl;
+	std::cout << "This is the wrong animal class and it doesn't make any sound!" << std::endl;
 }
 
 std::string WrongAnimal::getType(void) const {

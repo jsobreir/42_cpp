@@ -1,6 +1,6 @@
 CC = c++
 
-SRC = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
+SRC = main.cpp Cat.cpp Dog.cpp Brain.cpp AAnimal.cpp
 
 NAME = animal
 

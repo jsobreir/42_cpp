@@ -1,38 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   AAnimal.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsobreir <jsobreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/16 18:19:08 by jsobreir          #+#    #+#             */
-/*   Updated: 2024/12/17 14:48:11 by jsobreir         ###   ########.fr       */
+/*   Created: 2024/12/16 18:12:34 by jsobreir          #+#    #+#             */
+/*   Updated: 2024/12/18 11:16:13 by jsobreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#pragma once
 
-Cat::Cat() : Animal("Cat"), _type("Cat") {
-}
+#include <iostream>
 
-Cat::Cat(const Cat &cat) : Animal("Cat") {
-	*this = cat;
-}
-
-Cat Cat::operator=(Cat const &cat) {
-	if (this != &cat) {
-		_type = cat._type;
-	}
-	return *this;
-}
-
-Cat::~Cat() {
-}
-
-void Cat::makeSound(void) const {
-	std::cout << "miau miau" << std::endl;
-}
-
-std::string Cat::getType(void) const {
-	return _type;
-}
+class AAnimal {
+	protected:
+		std::string _type;
+	public:
+		AAnimal();
+		AAnimal(std::string type);
+		AAnimal(const AAnimal &aanimal);
+		AAnimal& operator=(AAnimal const &aanimal);
+		virtual ~AAnimal();
+		virtual void makeSound(void) const = 0;
+		std::string getType(void) const;
+} ;

@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsobreir <jsobreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/16 18:19:08 by jsobreir          #+#    #+#             */
-/*   Updated: 2024/12/17 14:48:11 by jsobreir         ###   ########.fr       */
+/*   Created: 2025/01/09 12:27:01 by jsobreir          #+#    #+#             */
+/*   Updated: 2025/01/11 19:03:44 by jsobreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#pragma once
 
-Cat::Cat() : Animal("Cat"), _type("Cat") {
-}
+#include <iostream>
+#include "AMateria.hpp"
 
-Cat::Cat(const Cat &cat) : Animal("Cat") {
-	*this = cat;
-}
-
-Cat Cat::operator=(Cat const &cat) {
-	if (this != &cat) {
-		_type = cat._type;
-	}
-	return *this;
-}
-
-Cat::~Cat() {
-}
-
-void Cat::makeSound(void) const {
-	std::cout << "miau miau" << std::endl;
-}
-
-std::string Cat::getType(void) const {
-	return _type;
-}
+class Ice: public AMateria
+{
+	protected:
+		std::string _type;
+	
+	public:
+		Ice();
+		Ice(std::string const & type);
+		Ice(const Ice &ice);
+		Ice &operator=(Ice const &ice);
+		std::string const & getType() const; //Returns the materia type
+		Ice* clone() const;
+		void use(ICharacter& target);
+};
