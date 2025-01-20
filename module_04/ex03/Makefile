@@ -2,7 +2,7 @@ CC = c++
 
 SRC = AMateria.cpp MateriaSource.cpp Ice.cpp Cure.cpp ICharacter.cpp main.cpp
 
-NAME = animal
+NAME = materia
 
 FLAGS =  -std=c++98 -g -Wall -Wextra -Werror -o
 

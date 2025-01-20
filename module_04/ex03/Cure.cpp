@@ -6,21 +6,15 @@
 /*   By: jsobreir <jsobreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 12:51:46 by jsobreir          #+#    #+#             */
-/*   Updated: 2025/01/12 17:52:24 by jsobreir         ###   ########.fr       */
+/*   Updated: 2025/01/20 18:30:14 by jsobreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cure.hpp"
 
-Cure::Cure() {
-	std::cout << "Cure was created" << std::endl;
-}
+Cure::Cure(): AMateria("cure"){ }
 
-Cure::Cure(std::string const & type): _type(type) {
-	std::cout << "Cure type constructor called" << std::endl;
-}
-
-Cure::Cure(const Cure &cure) {
+Cure::Cure(const Cure &cure): AMateria("cure") {
 	*this = cure;
 }
 
