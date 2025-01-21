@@ -6,18 +6,22 @@
 /*   By: jsobreir <jsobreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 16:48:39 by jsobreir          #+#    #+#             */
-/*   Updated: 2025/01/21 12:03:09 by jsobreir         ###   ########.fr       */
+/*   Updated: 2025/01/21 12:38:10 by jsobreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ICharacter.hpp"
 
 
-Character::Character(): _totalUnequiped(0) { }
+Character::Character() {
+	int idx = -1;
+	while (++idx < 4) {
+		this->slot[idx] = NULL;
+	}
+}
 
 Character::Character(std::string name) {
 	_name = name;
-	_totalUnequiped = 0;
 	int idx = -1;
 	while (++idx < 4) {
 		this->slot[idx] = NULL;
@@ -26,7 +30,6 @@ Character::Character(std::string name) {
 
 Character::Character(const Character &character) {
 	this->_name = character.getName();
-	_totalUnequiped = 0;
 	for (int i = 0; i < 4; i++) {
 		if (character.slot[i])
 			this->slot[i] = character.slot[i]->clone();
@@ -37,7 +40,6 @@ Character::Character(const Character &character) {
 
 
 Character &Character::operator=(Character const &character) {
-	_totalUnequiped = 0;
 	_name = character.getName();
 	for (int i = 0; i < 4; i++) {
 		delete slot[i];
@@ -50,16 +52,7 @@ Character &Character::operator=(Character const &character) {
 }
 ICharacter::~ICharacter() {}
 
-Character::~Character() {
-	for (int i = 0; i < _totalUnequiped; i++) {
-		std::cout << "Here" << std::endl;
-		if (unequiped)
-			delete unequiped;
-		else
-			break ;
-		unequiped++;
-	}	
-}
+Character::~Character() {}
 
 std::string const & Character::getName() const {
 	return (_name);
@@ -75,11 +68,10 @@ void Character::equip(AMateria *m) {
 }
 
 void Character::unequip(int idx) {
-	AMateria *ptr = unequiped;
-	for (int i = 0; i < _totalUnequiped; i++)
-		ptr++;
-	ptr = slot[idx];
-	slot[idx] = NULL;
+	if (slot[idx])
+		slot[idx] = NULL;
+	else
+		std::cout << "Inventory is already empty!" << std::endl;
 }
 
 void Character::use(int idx, ICharacter &target) {

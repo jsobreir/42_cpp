@@ -6,7 +6,7 @@
 /*   By: jsobreir <jsobreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 18:30:46 by jsobreir          #+#    #+#             */
-/*   Updated: 2025/01/21 11:37:37 by jsobreir         ###   ########.fr       */
+/*   Updated: 2025/01/21 12:46:03 by jsobreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@
 
 int main()
 {
-	// {
-	// 	std::cout << "---- Test 1 ----" << std::endl;
-	// 	AMateria *cure = new Cure();
-	// 	std::cout << cure->getType() << std::endl;
-	// 	AMateria *ice = new Ice();
-	// 	std::cout << ice->getType() << std::endl;
-	// 	delete cure;
-	// 	delete ice;
-	// }
+	{
+		std::cout << "---- Test 1 ----" << std::endl;
+		AMateria *cure = new Cure();
+		std::cout << cure->getType() << std::endl;
+		AMateria *ice = new Ice();
+		std::cout << ice->getType() << std::endl;
+		delete cure;
+		delete ice;
+	}
 	{
 		std::cout << "\n---- Test 2 ----" << std::endl;
 		IMateriaSource* src = new MateriaSource();
@@ -62,13 +62,9 @@ int main()
 		tmp = srce->createMateria("ice");
 		bob->equip(tmp);
 		
-		std::cout << "1:" << std::endl;
 		bob->use(0, *bob);
-		std::cout << "2:" << std::endl;
 		bob->use(1, *bob);
-		std::cout << "3:" << std::endl;
 		bob->use(2, *bob);
-		std::cout << "4:" << std::endl;
 		bob->use(3, *bob);
 
 		bob->unequip(1);

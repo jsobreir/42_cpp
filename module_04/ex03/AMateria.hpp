@@ -6,7 +6,7 @@
 /*   By: jsobreir <jsobreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 12:14:16 by jsobreir          #+#    #+#             */
-/*   Updated: 2025/01/20 15:20:44 by jsobreir         ###   ########.fr       */
+/*   Updated: 2025/01/21 12:41:47 by jsobreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class AMateria
 		AMateria(const AMateria &amateria);
 		AMateria &operator=(AMateria const &amateria);
 		virtual ~AMateria();
-		std::string const & getType() const; //Returns the materia type
+		std::string const & getType() const;
 		virtual AMateria* clone() const = 0;
 		virtual void use(ICharacter& target);
 };

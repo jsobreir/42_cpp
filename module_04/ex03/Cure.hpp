@@ -6,7 +6,7 @@
 /*   By: jsobreir <jsobreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 12:26:57 by jsobreir          #+#    #+#             */
-/*   Updated: 2025/01/11 16:35:39 by jsobreir         ###   ########.fr       */
+/*   Updated: 2025/01/21 12:45:13 by jsobreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ class Cure: public AMateria
 	
 	public:
 		Cure();
-		Cure(std::string const & type);
 		Cure(const Cure &cure);
 		Cure &operator=(Cure const &cure);
 		std::string const & getType() const; //Returns the Cure type
