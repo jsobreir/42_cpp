@@ -6,7 +6,7 @@
 /*   By: jsobreir <jsobreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 12:29:34 by jsobreir          #+#    #+#             */
-/*   Updated: 2025/01/20 19:44:59 by jsobreir         ###   ########.fr       */
+/*   Updated: 2025/01/21 12:07:15 by jsobreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ class ICharacter
 class Character: public ICharacter
 {
 	private:
-		AMateria *unequiped;
 		int _totalUnequiped;
 		AMateria *slot[4];
 		std::string _name;
