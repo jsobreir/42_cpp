@@ -6,20 +6,22 @@
 /*   By: jsobreir <jsobreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 16:48:39 by jsobreir          #+#    #+#             */
-/*   Updated: 2025/01/20 19:45:11 by jsobreir         ###   ########.fr       */
+/*   Updated: 2025/01/21 12:03:09 by jsobreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ICharacter.hpp"
 
 
-Character::Character(): _totalUnequiped(0) {
-	
-}
+Character::Character(): _totalUnequiped(0) { }
 
 Character::Character(std::string name) {
 	_name = name;
 	_totalUnequiped = 0;
+	int idx = -1;
+	while (++idx < 4) {
+		this->slot[idx] = NULL;
+	}
 }
 
 Character::Character(const Character &character) {
@@ -50,6 +52,7 @@ ICharacter::~ICharacter() {}
 
 Character::~Character() {
 	for (int i = 0; i < _totalUnequiped; i++) {
+		std::cout << "Here" << std::endl;
 		if (unequiped)
 			delete unequiped;
 		else

@@ -6,15 +6,17 @@
 /*   By: jsobreir <jsobreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 12:51:46 by jsobreir          #+#    #+#             */
-/*   Updated: 2025/01/20 18:30:14 by jsobreir         ###   ########.fr       */
+/*   Updated: 2025/01/21 11:38:56 by jsobreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cure.hpp"
 
-Cure::Cure(): AMateria("cure"){ }
+Cure::Cure(): AMateria::AMateria("cure"){
+	this->_type = AMateria::_type;
+}
 
-Cure::Cure(const Cure &cure): AMateria("cure") {
+Cure::Cure(const Cure &cure): AMateria::AMateria(cure) {
 	*this = cure;
 }
 

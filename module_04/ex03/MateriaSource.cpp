@@ -6,14 +6,18 @@
 /*   By: jsobreir <jsobreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 20:36:44 by jsobreir          #+#    #+#             */
-/*   Updated: 2025/01/20 19:57:18 by jsobreir         ###   ########.fr       */
+/*   Updated: 2025/01/21 12:00:42 by jsobreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MateriaSource.hpp"
 #include "AMateria.hpp"
 
-MateriaSource::MateriaSource() { }
+MateriaSource::MateriaSource() {
+	for (int i = 0; i < 4; i++) {
+		memory[i] = NULL;
+	}
+}
 
 MateriaSource::MateriaSource(const MateriaSource &other) {
 	*this = other;
@@ -31,7 +35,7 @@ MateriaSource &MateriaSource::operator=(MateriaSource const &other) {
 MateriaSource::~MateriaSource() {
 	for (int i = 0; i < 4; i++) {
 		if (memory[i])
-			delete memory[i];
+			delete this->memory[i];
 		else
 			break ;
 	}
@@ -40,12 +44,7 @@ MateriaSource::~MateriaSource() {
 void MateriaSource::learnMateria(AMateria *materia) {
 	std::string type = materia->getType();
 	for (int i = 0; i < 4; i++) {
-		if (memory[i] && type == memory[i]->getType())
-		{
-			std::cout << "Already exists in memory." << std::endl;
-			break ;
-		}
-		else if (!memory[i])
+		if (!memory[i])
 		{
 			memory[i] = materia->clone();
 			break ;

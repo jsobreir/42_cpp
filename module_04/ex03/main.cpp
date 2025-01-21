@@ -6,7 +6,7 @@
 /*   By: jsobreir <jsobreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 18:30:46 by jsobreir          #+#    #+#             */
-/*   Updated: 2025/01/20 19:48:28 by jsobreir         ###   ########.fr       */
+/*   Updated: 2025/01/21 11:37:37 by jsobreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@
 
 int main()
 {
-	{
-		std::cout << "---- Test 1 ----" << std::endl;
-		AMateria *cure = new Cure();
-		std::cout << cure->getType() << std::endl;
-		AMateria *ice = new Ice();
-		std::cout << ice->getType() << std::endl;
-		delete cure;
-		delete ice;
-	}
+	// {
+	// 	std::cout << "---- Test 1 ----" << std::endl;
+	// 	AMateria *cure = new Cure();
+	// 	std::cout << cure->getType() << std::endl;
+	// 	AMateria *ice = new Ice();
+	// 	std::cout << ice->getType() << std::endl;
+	// 	delete cure;
+	// 	delete ice;
+	// }
 	{
 		std::cout << "\n---- Test 2 ----" << std::endl;
 		IMateriaSource* src = new MateriaSource();
@@ -33,9 +33,9 @@ int main()
 		src->learnMateria(new Cure());
 		ICharacter* me = new Character("me");
 		AMateria* tmp;
-		tmp = src->createMateria("ice");
-		me->equip(tmp);
 		tmp = src->createMateria("cure");
+		me->equip(tmp);
+		tmp = src->createMateria("ice");
 		me->equip(tmp);
 		ICharacter* bob = new Character("bob");
 		me->use(0, *bob);
@@ -46,25 +46,29 @@ int main()
 	}
 	{
 		std::cout << "\n---- Test 3 ----" << std::endl;
-		IMateriaSource	*src = new MateriaSource();
+		IMateriaSource	*srce = new MateriaSource();
 		AMateria		*tmp;
 		ICharacter		*bob = new Character("Bob");
 
-		src->learnMateria(new Ice());
-		src->learnMateria(new Cure());
-		src->learnMateria(new Ice());
-		src->learnMateria(new Cure());
+		srce->learnMateria(new Ice());
+		srce->learnMateria(new Cure());
+		srce->learnMateria(new Ice());
+		srce->learnMateria(new Cure());
 
-		tmp = src->createMateria("ice");
+		tmp = srce->createMateria("ice");
 		bob->equip(tmp);
-		tmp = src->createMateria("cure");
+		tmp = srce->createMateria("cure");
 		bob->equip(tmp);
-		tmp = src->createMateria("ice");
+		tmp = srce->createMateria("ice");
 		bob->equip(tmp);
-
+		
+		std::cout << "1:" << std::endl;
 		bob->use(0, *bob);
+		std::cout << "2:" << std::endl;
 		bob->use(1, *bob);
+		std::cout << "3:" << std::endl;
 		bob->use(2, *bob);
+		std::cout << "4:" << std::endl;
 		bob->use(3, *bob);
 
 		bob->unequip(1);
@@ -73,7 +77,7 @@ int main()
 		bob->use(1, *bob);
 		bob->use(2, *bob);
 
-		delete src;
+		delete srce;
 		delete bob;
 		return 0;
 	}

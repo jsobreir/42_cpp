@@ -6,15 +6,17 @@
 /*   By: jsobreir <jsobreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 16:28:52 by jsobreir          #+#    #+#             */
-/*   Updated: 2025/01/20 18:30:37 by jsobreir         ###   ########.fr       */
+/*   Updated: 2025/01/21 11:39:08 by jsobreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
 
-Ice::Ice(): AMateria("ice") { }
+Ice::Ice(): AMateria::AMateria("ice"), _type() {
+	this->_type = AMateria::_type;
+}
 
-Ice::Ice(const Ice &ice): AMateria("ice")  {
+Ice::Ice(const Ice &ice): AMateria::AMateria(ice)  {
 	*this = ice;
 }
 
