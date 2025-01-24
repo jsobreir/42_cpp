@@ -6,7 +6,7 @@
 /*   By: jsobreir <jsobreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 15:29:26 by jsobreir          #+#    #+#             */
-/*   Updated: 2024/12/16 15:29:34 by jsobreir         ###   ########.fr       */
+/*   Updated: 2024/12/17 13:30:28 by jsobreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,5 @@ class ScavTrap: public ClapTrap {
 		ScavTrap& operator=(const ScavTrap& scavTrap);
 		~ScavTrap();
 		void guardGate(void);
+		void attack(const std::string& target);
 } ;

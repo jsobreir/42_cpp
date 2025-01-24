@@ -6,7 +6,7 @@
 /*   By: jsobreir <jsobreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 15:28:29 by jsobreir          #+#    #+#             */
-/*   Updated: 2024/12/16 16:03:51 by jsobreir         ###   ########.fr       */
+/*   Updated: 2024/12/18 11:52:24 by jsobreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ DiamondTrap::DiamondTrap() : ClapTrap("Default_clap_name"), _name("Default") {
 	std::cout << "DiamondTrap was created." << std::endl;
 }
 
-DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name") {
+DiamondTrap::DiamondTrap(std::string name)
+	: ClapTrap(name + "_clap_name"), ScavTrap(name + "_clap_name"), FragTrap(name + "_clap_name")  {
 	this->_name = name;
 	this->_hitPoints = FragTrap::_hitPoints;
 	this->_energyPoints = ScavTrap::_energyPoints;
@@ -27,7 +28,8 @@ DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name") {
 	std::cout << "DiamondTrap " << this->_name << " was created." << std::endl;
 }
 
-DiamondTrap::DiamondTrap(const DiamondTrap& diamondTrap) {
+DiamondTrap::DiamondTrap(const DiamondTrap& diamondTrap)
+	: ClapTrap(diamondTrap), ScavTrap(diamondTrap), FragTrap(diamondTrap) {
 	*this = diamondTrap;
 }
 

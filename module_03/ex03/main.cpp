@@ -6,7 +6,7 @@
 /*   By: jsobreir <jsobreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 15:27:56 by jsobreir          #+#    #+#             */
-/*   Updated: 2024/12/16 15:59:19 by jsobreir         ###   ########.fr       */
+/*   Updated: 2024/12/18 11:28:34 by jsobreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int main(void) {
 	{
 		std::cout << "\n\n=== DiamondTrap Tests ===" << std::endl;
 
-		std::cout << "----- Diamond should be created:" << std::endl;
+		std::cout << "----- DiamondTrap Fumador should be created:" << std::endl;
 		DiamondTrap D("Fumador");
 
 		DiamondTrap G;

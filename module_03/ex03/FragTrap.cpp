@@ -6,7 +6,7 @@
 /*   By: jsobreir <jsobreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 15:28:20 by jsobreir          #+#    #+#             */
-/*   Updated: 2024/12/16 15:28:21 by jsobreir         ###   ########.fr       */
+/*   Updated: 2024/12/18 11:58:30 by jsobreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name) {
 	std::cout << "FragTrap " << _name << "  was created." << std::endl;
 }
 
-FragTrap::FragTrap(const FragTrap& fragTrap) {
+FragTrap::FragTrap(const FragTrap& fragTrap) : ClapTrap(fragTrap) {
 	*this = fragTrap;
 }
 

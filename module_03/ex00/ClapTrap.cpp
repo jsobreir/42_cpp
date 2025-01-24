@@ -6,7 +6,7 @@
 /*   By: jsobreir <jsobreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 15:30:21 by jsobreir          #+#    #+#             */
-/*   Updated: 2024/12/16 15:53:22 by jsobreir         ###   ########.fr       */
+/*   Updated: 2024/12/18 11:19:44 by jsobreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@ ClapTrap::ClapTrap(std::string name) : _hitPoints(10), _energyPoints(10), _attac
 	std::cout << "ClapTrap " << _name << " was created." << std::endl;
 }
 
-ClapTrap::ClapTrap(const ClapTrap &clapTrap) { *this = clapTrap; }
+ClapTrap::ClapTrap(const ClapTrap &clapTrap) {
+	*this = clapTrap;
+}
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& clapTrap) {
 	if (this != &clapTrap) {

@@ -6,7 +6,7 @@
 /*   By: jsobreir <jsobreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 15:29:23 by jsobreir          #+#    #+#             */
-/*   Updated: 2024/12/16 15:29:24 by jsobreir         ###   ########.fr       */
+/*   Updated: 2024/12/18 11:59:47 by jsobreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
 	std::cout << "ScavTrap " << _name << "  was created." << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap& scavTrap) {
+ScavTrap::ScavTrap(const ScavTrap& scavTrap) : ClapTrap(scavTrap) {
 	*this = scavTrap;
 }
 
@@ -47,4 +47,17 @@ ScavTrap::~ScavTrap() {
 
 void ScavTrap::guardGate(void) {
 	std::cout << "ScavTrap is in Gate keeper mode." << std::endl;
+}
+
+void ScavTrap::attack(const std::string& target) {
+	if (_energyPoints && _hitPoints > 0) {
+		std::cout << "ScavTrap " << _name << " attacks " << target << ", causing " << _attackDamage << " points of Damage!" << std::endl;
+		_energyPoints--;
+	}
+	else if (!_energyPoints && !_hitPoints)
+		std::cout << "ScavTrap has no Hit Points and Energy left!" << std::endl;
+	else if (!_energyPoints)
+		std::cout << "ScavTrap has no Energy left to attack!" << std::endl;
+	else if (!_hitPoints)
+		std::cout << "ScavTrap has no Hit Points left to attack!" << std::endl;			
 }

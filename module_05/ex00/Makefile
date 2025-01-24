@@ -1,8 +1,8 @@
 CC = c++
 
-SRC = main.cpp ClapTrap.cpp ScavTrap.cpp
+SRC = Bureocrat.cpp main.cpp
 
-NAME = scavtrap
+NAME = bureocrat
 
 FLAGS =  -std=c++98 -g -Wall -Wextra -Werror -o
 
