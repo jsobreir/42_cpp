@@ -17,19 +17,19 @@
 #include "Bureaucrat.hpp"
 
 class Bureaucrat;
-class Form {
+class AForm {
 	private:
 		const std::string _name;
 		bool  _is_signed;
 		const int _s_g; //sign min grade
 		const int _e_g; // execute min grade
 	public:
-		Form();
-		Form(std::string name, int s_gm, int e_gm);
-		Form(Form const &Form);
-		Form &operator=(Form const &Form);
-		~Form ();
-		void beSigned(Bureaucrat &Bureaucrat);
+		AForm();
+		AForm(std::string name, int s_gm, int e_gm);
+		AForm(AForm const &AForm);
+		AForm &operator=(AForm const &AForm);
+		~AForm ();
+		virtual void beSigned(Bureaucrat &Bureaucrat) = 0;
 		std::string getName() const ;
 		bool getSignStatus() const ;
 		int	getMinSign() const ;
@@ -45,4 +45,4 @@ class Form {
 		} ;
 } ;
 
-std::ostream& operator<<(std::ostream &out, const Form &Form);
+std::ostream& operator<<(std::ostream &out, const AForm &AForm);

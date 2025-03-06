@@ -1,8 +1,8 @@
 CC = c++
 
-SRC = Bureocrat.cpp main.cpp
+SRC = Bureaucrat.cpp main.cpp Form.cpp
 
-NAME = bureocrat
+NAME = Bureaucrat
 
 FLAGS =  -std=c++98 -g -Wall -Wextra -Werror -o
 

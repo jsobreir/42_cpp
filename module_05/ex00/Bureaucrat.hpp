@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureocrat.hpp                                      :+:      :+:    :+:   */
+/*   Bureaucrat.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsobreir <jsobreir@student.42porto.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -15,16 +15,16 @@
 #include <iostream>
 #include <exception>
 
-class Bureocrat {
+class Bureaucrat {
 	private:
 		const std::string _name;
 		int	_grade;
 	public:
-		Bureocrat();
-		Bureocrat(std::string name, int grade);
-		Bureocrat(Bureocrat const &bureocrat);
-		Bureocrat &operator=(Bureocrat const &bureocrat);
-		~Bureocrat ();
+		Bureaucrat();
+		Bureaucrat(std::string name, int grade);
+		Bureaucrat(Bureaucrat const &Bureaucrat);
+		Bureaucrat &operator=(Bureaucrat const &Bureaucrat);
+		~Bureaucrat ();
 		const std::string getName() const;
 		int getGrade() const ;
 		void increment(int amount);
@@ -40,4 +40,4 @@ class Bureocrat {
 		} ;
 } ;
 
-std::ostream& operator<<(std::ostream &out, const Bureocrat &bureocrat);
+std::ostream& operator<<(std::ostream &out, const Bureaucrat &Bureaucrat);

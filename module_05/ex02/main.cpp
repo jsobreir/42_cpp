@@ -11,20 +11,22 @@
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int main(void)
 {
 	try
 	{
 		Bureaucrat john = Bureaucrat("John", 12);
-		Form		irs = Form("IRS", 22, 45);
+		AForm *shrub = new ShrubberyCreationForm("arbusto", 22, 45);
 		std::cout << john;
-		john.signForm(irs);
+		john.signForm(*shrub);
 		john.increment(124);
-		john.signForm(irs);
-		std::cout << "irs signed? " << irs.getSignStatus() << std::endl;
+		john.signForm(*shrub);
+		std::cout << "shrub signed? " << (*shrub).getSignStatus() << std::endl;
 		john.decrement(127);
-		john.signForm(irs);
+		john.signForm(*shrub);
+		john.executeForm(*shrub);
 	}
 	catch (const std::exception& e)
 	{

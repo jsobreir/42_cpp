@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                      :+:      :+:    :+:   */
+/*   Bureaucrat.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsobreir <jsobreir@student.42porto.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 14:02:06 by jsobreir          #+#    #+#             */
-/*   Updated: 2025/01/24 13:30:11 by jsobreir         ###   ########.fr       */
+/*   Updated: 2025/03/06 14:50:39 by jsobreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,26 @@
 
 #include <iostream>
 #include <exception>
-#include "Bureaucrat.hpp"
+#include "AForm.hpp"
 
-class Bureaucrat;
-class Form {
+
+class AForm;
+class Bureaucrat {
 	private:
 		const std::string _name;
-		bool  _is_signed;
-		const int _s_g; //sign min grade
-		const int _e_g; // execute min grade
+		int	_grade;
 	public:
-		Form();
-		Form(std::string name, int s_gm, int e_gm);
-		Form(Form const &Form);
-		Form &operator=(Form const &Form);
-		~Form ();
-		void beSigned(Bureaucrat &Bureaucrat);
-		std::string getName() const ;
-		bool getSignStatus() const ;
-		int	getMinSign() const ;
-		int getMinExec() const ;
+		Bureaucrat();
+		Bureaucrat(std::string name, int grade);
+		Bureaucrat(Bureaucrat const &Bureaucrat);
+		Bureaucrat &operator=(Bureaucrat const &Bureaucrat);
+		~Bureaucrat ();
+		const std::string getName() const;
+		int getGrade() const ;
+		void increment(int amount);
+		void decrement(int amount);
+		void signForm(AForm &form);
+		void executeForm(AForm const & form);
 		class GradeTooLowException : public std::exception {
 			public:
 				virtual const char* what() const throw();
@@ -45,4 +45,4 @@ class Form {
 		} ;
 } ;
 
-std::ostream& operator<<(std::ostream &out, const Form &Form);
+std::ostream& operator<<(std::ostream &out, const Bureaucrat &Bureaucrat);

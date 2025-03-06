@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureocrat.hpp                                      :+:      :+:    :+:   */
+/*   Bureaucrat.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsobreir <jsobreir@student.42porto.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 14:02:06 by jsobreir          #+#    #+#             */
-/*   Updated: 2025/01/24 14:09:30 by jsobreir         ###   ########.fr       */
+/*   Updated: 2025/02/26 18:21:49 by jsobreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,21 @@
 #include "Form.hpp"
 
 class Form;
-class Bureocrat {
+class Bureaucrat {
 	private:
 		const std::string _name;
 		int	_grade;
 	public:
-		Bureocrat();
-		Bureocrat(std::string name, int grade);
-		Bureocrat(Bureocrat const &bureocrat);
-		Bureocrat &operator=(Bureocrat const &bureocrat);
-		~Bureocrat ();
+		Bureaucrat();
+		Bureaucrat(std::string name, int grade);
+		Bureaucrat(Bureaucrat const &Bureaucrat);
+		Bureaucrat &operator=(Bureaucrat const &Bureaucrat);
+		~Bureaucrat ();
 		const std::string getName() const;
 		int getGrade() const ;
 		void increment(int amount);
 		void decrement(int amount);
-		void signForm(Form const &form);
+		void signForm(Form &form);
 		class GradeTooLowException : public std::exception {
 			public:
 				virtual const char* what() const throw();
@@ -43,4 +43,4 @@ class Bureocrat {
 		} ;
 } ;
 
-std::ostream& operator<<(std::ostream &out, const Bureocrat &bureocrat);
+std::ostream& operator<<(std::ostream &out, const Bureaucrat &Bureaucrat);

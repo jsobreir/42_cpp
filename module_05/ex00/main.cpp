@@ -6,17 +6,17 @@
 /*   By: jsobreir <jsobreir@student.42porto.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 19:32:50 by jsobreir          #+#    #+#             */
-/*   Updated: 2025/01/24 13:31:46 by jsobreir         ###   ########.fr       */
+/*   Updated: 2025/03/06 15:09:26 by jsobreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureocrat.hpp"
+#include "Bureaucrat.hpp"
 
 int main(void)
 {
 	try
 	{
-		Bureocrat john = Bureocrat("John", 46);
+		Bureaucrat john = Bureaucrat("John", 46);
 		std::cout << john;
 		john.increment(124);
 	}
