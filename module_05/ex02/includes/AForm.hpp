@@ -28,8 +28,9 @@ class AForm {
 		AForm(std::string name, int s_gm, int e_gm);
 		AForm(AForm const &AForm);
 		AForm &operator=(AForm const &AForm);
-		~AForm ();
-		virtual void beSigned(Bureaucrat &Bureaucrat) = 0;
+		virtual ~AForm ();
+		void beSigned(Bureaucrat &Bureaucrat);
+		virtual void execute(Bureaucrat const &executor) const = 0;
 		std::string getName() const ;
 		bool getSignStatus() const ;
 		int	getMinSign() const ;
@@ -40,6 +41,10 @@ class AForm {
 		} ;
 		
 		class GradeTooHighException : public std::exception {
+			public:
+				virtual const char* what() const throw();	
+		} ;
+		class FormNotSignedException : public std::exception {
 			public:
 				virtual const char* what() const throw();	
 		} ;

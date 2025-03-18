@@ -26,13 +26,13 @@ AForm::AForm(std::string name, int s_gm, int e_gm)
 
 AForm::AForm(AForm const &form) :_name(form._name) , _s_g(form._s_g) , _e_g(form._e_g) {
 	*this = form;
-	_is_signed = false;
+	_is_signed = form.getSignStatus();
 }
 
 AForm &AForm::operator=(AForm const &other) {
 	if (this != &other)
 	{
-		_is_signed = false;
+		_is_signed = other.getSignStatus();
 	}
 	return *this;
 }
@@ -55,7 +55,6 @@ int AForm::getMinExec() const {
 	return _e_g;
 }
 
-
 void AForm::beSigned(Bureaucrat &Bureaucrat) {
 	if (Bureaucrat.getGrade() <= _s_g)
 		_is_signed = true;
@@ -71,10 +70,14 @@ const char* AForm::GradeTooHighException::what() const throw() {
 	return "Grade is too high";
 }
 
+const char* AForm::FormNotSignedException::what() const throw() {
+	return "This form is not signed.";
+}
+
 std::ostream& operator<<(std::ostream &out, const AForm &form) {
 	out << "AForm's name: " << form.getName() << "\n"
 	<< "Sign status: " << form.getSignStatus()<< "\n"	
 	<< "Minimum grade to be signed: " << form.getMinSign() << "\n"
-	<< "Minimum grade to be executed: " << form.getMinSign() << "\n";
+	<< "Minimum grade to be executed: " << form.getMinExec() << "\n";
 	return out;
 }

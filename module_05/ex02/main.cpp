@@ -6,30 +6,48 @@
 /*   By: jsobreir <jsobreir@student.42porto.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 19:32:50 by jsobreir          #+#    #+#             */
-/*   Updated: 2025/03/06 15:09:26 by jsobreir         ###   ########.fr       */
+/*   Updated: 2025/03/18 17:17:52 by jsobreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int main(void)
 {
-	try
 	{
-		Bureaucrat john = Bureaucrat("John", 12);
-		AForm *shrub = new ShrubberyCreationForm("arbusto", 22, 45);
+		std::cout << "--------- Test 1 ---------" << std::endl;
+		Bureaucrat john = Bureaucrat("John", 100);
+		ShrubberyCreationForm *shrubbery = new ShrubberyCreationForm("arbusto");
 		std::cout << john;
-		john.signForm(*shrub);
-		john.increment(124);
-		john.signForm(*shrub);
-		std::cout << "shrub signed? " << (*shrub).getSignStatus() << std::endl;
-		john.decrement(127);
-		john.signForm(*shrub);
-		john.executeForm(*shrub);
+		std::cout << shrubbery;
+		john.signForm(*shrubbery);
+		john.executeForm(*shrubbery);
+		delete shrubbery;
+		std::cout << "\n";
 	}
-	catch (const std::exception& e)
 	{
-		std::cerr << "exception caught: " << e.what() << std::endl;
-	}	
+		std::cout << "--------- Test 2 ---------" << std::endl;
+		Bureaucrat pit = Bureaucrat("Pitt", 5);
+		std::cout << pit;
+		AForm *robotomize = new RobotomyRequestForm("robotomize");
+		std::cout << robotomize;
+		pit.signForm(*robotomize);
+		pit.executeForm(*robotomize);
+		delete robotomize;
+		std::cout << "\n";
+	}
+	{
+		std::cout << "--------- Test 3 ---------" << std::endl;
+		Bureaucrat max = Bureaucrat("Max", 5);
+		std::cout << max;
+		AForm *presidential = new PresidentialPardonForm("presidential");
+		std::cout << presidential;
+		max.signForm(*presidential);
+		max.executeForm(*presidential);
+		delete presidential;
+		std::cout << "\n";
+	}
 }

@@ -12,9 +12,7 @@
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() {
-	
-}
+Bureaucrat::Bureaucrat() { }
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name) {
 	if (grade >= 1 && grade <= 150)
@@ -31,9 +29,7 @@ Bureaucrat::Bureaucrat(Bureaucrat const &Bureaucrat) : _name(Bureaucrat._name) ,
 
 Bureaucrat &Bureaucrat::operator=(Bureaucrat const &other) {
 	if (this != &other)
-	{
 		_grade = other._grade;
-	}
 	return *this;
 }
 
@@ -49,7 +45,7 @@ int Bureaucrat::getGrade() const {
 
 void Bureaucrat::signForm(AForm &form) {
 	if (form.getSignStatus() == true)
-		std::cout << getName() << " already signed" << form.getName() << std::endl;
+		std::cout << form.getName() << " already signed" << std::endl;
 	else
 	{
 		if (_grade > form.getMinSign())
@@ -62,8 +58,16 @@ void Bureaucrat::signForm(AForm &form) {
 }
 
 void Bureaucrat::executeForm(const AForm &form) {
-	std::cout << _name << " executed " << form.getName() << std::endl;
-	
+	if (form.getSignStatus() == 0)
+		std::cout << "Form " << getName() << "cannot be executed,\
+			 because it is not signed\n";
+	else if (form.getMinExec() < this->getGrade())
+		std::cout << "Form " << getName() << "cannot be executed,\
+			 because " << this->getName() << " doesn't have the required grade\n";
+	else {
+		form.execute(*this);
+		std::cout << _name << " executed " << form.getName() << std::endl;
+	}
 }
 
 void Bureaucrat::increment(int amount) {
