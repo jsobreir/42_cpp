@@ -21,6 +21,10 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm co
 
 ShrubberyCreationForm::~ShrubberyCreationForm () { }
 
+AForm *ShrubberyCreationForm::createShrubberyCreationForm () {
+	return (new ShrubberyCreationForm);
+}
+
 std::string ShrubberyCreationForm::getName() const {
 	return _target;
 }
