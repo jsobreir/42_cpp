@@ -21,8 +21,8 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(PresidentialPardonForm
 
 PresidentialPardonForm::~PresidentialPardonForm () { }
 
-AForm *PresidentialPardonForm::createPresidentialPardonForm () {
-	return (new PresidentialPardonForm);
+AForm *PresidentialPardonForm::createPresidentialPardonForm (std::string const & target) {
+	return (new PresidentialPardonForm(target));
 }
 
 std::string PresidentialPardonForm::getName() const {

@@ -21,16 +21,12 @@
 
 class AForm;
 class Intern {
-	private:
-		std::string _name;
-		std::string	_target;
 	public:
 		Intern();
-		Intern(std::string name, std::string target);
 		Intern(Intern const &Intern);
 		Intern &operator=(Intern const &Intern);
 		~Intern ();
-		AForm *makeForm();
+		AForm *makeForm(std::string name, std::string target);
 } ;
 
 std::ostream& operator<<(std::ostream &out, const Intern &Intern);

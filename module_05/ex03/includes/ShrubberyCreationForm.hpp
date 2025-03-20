@@ -13,7 +13,7 @@ class ShrubberyCreationForm : public AForm {
 		ShrubberyCreationForm(std::string target);
 		ShrubberyCreationForm(ShrubberyCreationForm const &ShrubberyCreationForm);
 		virtual~ShrubberyCreationForm ();
-		AForm *createShrubberyCreationForm();
+		static AForm *createShrubberyCreationForm(std::string const & target);
 		ShrubberyCreationForm &operator=(ShrubberyCreationForm const &ShrubberyCreationForm);
 		std::string getName() const ;
 		void execute(Bureaucrat const &executor) const ;

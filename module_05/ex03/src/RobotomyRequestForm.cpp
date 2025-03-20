@@ -17,8 +17,8 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm const &o
 
 RobotomyRequestForm::~RobotomyRequestForm () { }
 
-AForm *RobotomyRequestForm::createRobotomyRequestForm () {
-	return (new RobotomyRequestForm);
+AForm *RobotomyRequestForm::createRobotomyRequestForm (std::string const & target) {
+	return (new RobotomyRequestForm(target));
 }
 
 std::string RobotomyRequestForm::getName() const {
@@ -30,6 +30,7 @@ void RobotomyRequestForm::execute(Bureaucrat const &executor) const {
 		throw FormNotSignedException();
 	if (getMinExec() < executor.getGrade())
 		throw GradeTooLowException();
+	srand(time(0));
 	int	random = rand() % 2;
 	if (random == 0)
 		std::cout << "driiiiiiiiiii" << std::endl;

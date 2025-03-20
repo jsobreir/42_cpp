@@ -4,6 +4,9 @@
 #include <fstream>
 #include <stdlib.h>
 #include "AForm.hpp"
+#include <cstdlib>  // For srand() and rand()
+#include <ctime>    // For time()
+
 
 class AForm;
 class RobotomyRequestForm : public AForm {
@@ -14,7 +17,7 @@ class RobotomyRequestForm : public AForm {
 		RobotomyRequestForm(std::string target);
 		RobotomyRequestForm(RobotomyRequestForm const &RobotomyRequestForm);
 		~RobotomyRequestForm ();
-		AForm *createRobotomyRequestForm();
+		static AForm *createRobotomyRequestForm(std::string const & target);
 		RobotomyRequestForm &operator=(RobotomyRequestForm const &RobotomyRequestForm);
 		std::string getName() const ;
 		void execute(Bureaucrat const &executor) const ;

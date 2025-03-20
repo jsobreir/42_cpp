@@ -14,33 +14,31 @@
 
 Intern::Intern() { }
 
-Intern::Intern(std::string name, std::string target) : _name(name), _target(target) {
-
-}
-
-Intern::Intern(Intern const &Intern) : _name(Intern._name) {
+Intern::Intern(Intern const &Intern) {
 	*this = Intern;
 }
 
 Intern &Intern::operator=(Intern const &other) {
-	if (this != &other) {
-		_name = other._name;
-		_target = other._target;
-
-	}
+	(void)other;
 	return *this;
 }
 
 Intern::~Intern () { }
 
-AForm *Intern::makeForm() {
-	AForm	*(form[3]) ( ) = {
+AForm *Intern::makeForm(std::string name, std::string target) {
+	std::string forms[3] = {
+		"ShrubberyCreationForm",
+		"RobotomyRequestForm",
+		"PresidentialPardonForm"};
+
+	AForm	*(*form[3]) (std::string const &) = {
 		&ShrubberyCreationForm::createShrubberyCreationForm,
 		&RobotomyRequestForm::createRobotomyRequestForm,
 		&PresidentialPardonForm::createPresidentialPardonForm
 	};
-}
-
-std::ostream& operator<<(std::ostream &out, const Intern &Intern) {
-	return out;
+	for (int i = 0; i < 3; i++) {
+		if (name == forms[i])
+			return form[i](target);
+	}
+	return 0;
 }
