@@ -1,7 +1,11 @@
 #include "ScalarConverter.hpp"
 
-int main(void)
-{
-	ScalarConverter("1");
+int main(int argc, char **argv) {
+
+	if (argc == 1) {
+		std::cout << "Usage: ./convert [value]" << std::endl;
+		return 0;
+	}
+	ScalarConverter convert(argv[1]);
 	return 1;
 }

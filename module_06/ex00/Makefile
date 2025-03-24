@@ -5,7 +5,7 @@ INC = -I$(ROOT)/includes
 VPATH = src includes
 RM = rm -rf
 
-NAME = AForm
+NAME = convert
 SRC = main.cpp ScalarConverter.cpp
 OBJ_DIR = obj
 OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
