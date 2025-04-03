@@ -21,8 +21,8 @@ class AForm {
 	private:
 		const std::string _name;
 		bool  _is_signed;
-		const int _s_g; //sign min grade
-		const int _e_g; // execute min grade
+		const int _s_g;
+		const int _e_g;
 	public:
 		AForm();
 		AForm(std::string name, int s_gm, int e_gm);

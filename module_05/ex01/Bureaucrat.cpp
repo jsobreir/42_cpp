@@ -49,14 +49,14 @@ int Bureaucrat::getGrade() const {
 
 void Bureaucrat::signForm(Form &form) {
 	if (form.getSignStatus() == true)
-		std::cout << getName() << " already signed" << form.getName() << std::endl;
+		std::cout << getName() << " couldn't sign form because the form is already signed" << std::endl;
 	else
 	{
 		if (_grade > form.getMinSign())
 			std::cout << getName() << " couldn't sign form because his grade is too low" << std::endl;
 		else {
 			form.beSigned(*this);
-			std::cout << getName() << " signed form " << form.getName() << std::endl;
+			std::cout << getName() << " signed " << form.getName() << std::endl;
 		}
 	}
 }

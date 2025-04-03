@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsobreir <jsobreir@student.42porto.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/25 15:00:16 by jsobreir          #+#    #+#             */
-/*   Updated: 2025/03/25 15:00:17 by jsobreir         ###   ########.fr       */
+/*   Created: 2025/03/25 15:00:46 by jsobreir          #+#    #+#             */
+/*   Updated: 2025/03/26 12:32:19 by jsobreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#pragma once
+#include <iostream>
+#include <cstdlib>  // For srand() and rand()
+#include <ctime>    // For time()
 
-int main(int argc, char **argv) {
 
-	if (argc == 1) {
-		std::cout << "Usage: ./convert [value]" << std::endl;
-		return 0;
-	}
-	ScalarConverter convert(argv[1]);
-	return 1;
-}
+
+class Base {
+	public:
+		virtual ~Base();
+} ;
+
+Base *generate(void);
+void identify(Base *p);
+void identify(Base &p);

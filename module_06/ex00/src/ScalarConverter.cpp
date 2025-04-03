@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ScalarConverter.cpp                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jsobreir <jsobreir@student.42porto.fr>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/25 15:00:12 by jsobreir          #+#    #+#             */
+/*   Updated: 2025/03/25 15:00:13 by jsobreir         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ScalarConverter.hpp"
 // Static member initialization
 char ScalarConverter::_c_ret;
@@ -77,19 +89,19 @@ void ScalarConverter::convert(const std::string &string) {
 	else if (!isprint(_c_ret))
 		std::cout << "char: impossible" << std::endl;
 	else
-		std::cout << "char: " << _c_ret << std::endl;
+		std::cout << "char: '" << _c_ret << "'" << std::endl;
 	
-	if (_type == NAN)
+	if (_type == NAN || _type == INF || _type == MINUS_INF)
 		std::cout << "int: impossible" << std::endl;
 	else
 		std::cout << "int: " << _i_ret << std::endl;
 
-	if (_type == NAN)
+	if (_type == NAN || _type == INF || _type == MINUS_INF)
 		std::cout << "float: nanf" << std::endl;
 	else
 		std::cout << "float: " << std::fixed << std::setprecision(1) << _f_ret << "f" << std::endl;
 	
-	if (_type == NAN)
+	if (_type == NAN || _type == INF || _type == MINUS_INF)
 		std::cout << "double: nan" << std::endl;
 	else
 		std::cout << "double: " << std::fixed << std::setprecision(1) << _d_ret << std::endl;
@@ -107,7 +119,7 @@ int	ScalarConverter::detectType(std::string in) {
 		return DOUBLE;
 	else if (in == "nan")
 		return NAN;
-	else if (in == "inf" || in == "-inf")
+	else if (in == "inff" || in == "-inff")
 		return INF;
 	return NONE;
 }
@@ -137,11 +149,16 @@ bool ScalarConverter::isInt(std::string in) {
 bool ScalarConverter::isFloat(std::string in) {
 
 	std::stringstream ss;
-	ss << in;
+	std::string floatPart;
+	if (in.size() > 1 && in[in.size() - 1] == 'f') {
+		floatPart = in.substr(0, in.size() - 1);
+	}
+	else if (in[in.size() - 1] != 'f') {
+		floatPart = in;
+	}
+	ss << floatPart;
 	float f;
 	if ((ss >> f)) {
-		if (ss == "f")
-			
 		_f_ret = f;
 		return true;
 	}

@@ -1,23 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Templates.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsobreir <jsobreir@student.42porto.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/25 15:00:16 by jsobreir          #+#    #+#             */
-/*   Updated: 2025/03/25 15:00:17 by jsobreir         ###   ########.fr       */
+/*   Created: 2025/03/26 12:48:21 by jsobreir          #+#    #+#             */
+/*   Updated: 2025/03/26 12:56:24 by jsobreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#pragma once
+#include <iostream>
 
-int main(int argc, char **argv) {
+template <typename T> void swap (T *one, T *two) {
+	T temp;
+	temp = *one;
+	*one = *two;
+	*two = temp;
+}
 
-	if (argc == 1) {
-		std::cout << "Usage: ./convert [value]" << std::endl;
-		return 0;
-	}
-	ScalarConverter convert(argv[1]);
-	return 1;
+template <typename T> T min (T one, T two) {
+	if (one > two)
+		return two;
+	else if (one == two)
+		return two;
+	else
+		return one;
+}
+
+template <typename T> T max (T one, T two) {
+	if (one > two)
+		return one;
+	else if (one == two)
+		return two;
+	else
+		return two;
 }

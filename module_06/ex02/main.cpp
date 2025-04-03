@@ -5,19 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsobreir <jsobreir@student.42porto.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/25 15:00:16 by jsobreir          #+#    #+#             */
-/*   Updated: 2025/03/25 15:00:17 by jsobreir         ###   ########.fr       */
+/*   Created: 2025/03/25 16:54:32 by jsobreir          #+#    #+#             */
+/*   Updated: 2025/03/26 12:37:35 by jsobreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#include "Base.hpp"
 
-int main(int argc, char **argv) {
-
-	if (argc == 1) {
-		std::cout << "Usage: ./convert [value]" << std::endl;
-		return 0;
-	}
-	ScalarConverter convert(argv[1]);
-	return 1;
+int main(void) {
+	Base *base = generate();
+	Base &ref = *base;
+	identify(base);
+	identify(ref);
+	delete base;
 }
