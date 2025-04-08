@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   iter.hpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jsobreir <jsobreir@student.42porto.fr>     +#+  +:+       +#+        */
+/*   By: jsobreir <jsobreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/26 12:59:32 by jsobreir          #+#    #+#             */
-/*   Updated: 2025/03/26 13:01:56 by jsobreir         ###   ########.fr       */
+/*   Created: 2025/04/03 15:14:04 by jsobreir          #+#    #+#             */
+/*   Updated: 2025/04/03 15:49:19 by jsobreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-#include <iostream>
+#include "Iter.hpp"
 
-template <typename T, typename S> void iter(T *array, int len, S function) {
-	
+void function (int &i) {
+    i += 1;
+}
+
+int main (void) {
+    {
+        int array[] = {1, 3, 4, 6};
+
+        iter(array, 4, function);
+        return 0;
+    }
 }
