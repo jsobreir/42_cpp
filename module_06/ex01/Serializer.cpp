@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   Serializer.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jsobreir <jsobreir@student.42porto.fr>     +#+  +:+       +#+        */
+/*   By: jsobreir <jsobreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 15:00:28 by jsobreir          #+#    #+#             */
-/*   Updated: 2025/03/25 15:00:29 by jsobreir         ###   ########.fr       */
+/*   Updated: 2025/04/21 11:34:14 by jsobreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Serializer.hpp"
-
-Serializer::Serializer () { }
 
 Serializer::Serializer (Data *data) {
 	_data = data;

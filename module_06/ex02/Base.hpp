@@ -3,19 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jsobreir <jsobreir@student.42porto.fr>     +#+  +:+       +#+        */
+/*   By: jsobreir <jsobreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 15:00:46 by jsobreir          #+#    #+#             */
-/*   Updated: 2025/03/26 12:32:19 by jsobreir         ###   ########.fr       */
+/*   Updated: 2025/04/21 13:22:57 by jsobreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <iostream>
-#include <cstdlib>  // For srand() and rand()
-#include <ctime>    // For time()
-
-
+#include <cstdlib>
+#include <ctime>
 
 class Base {
 	public:
