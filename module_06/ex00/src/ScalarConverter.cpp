@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jsobreir <jsobreir@student.42porto.fr>     +#+  +:+       +#+        */
+/*   By: jsobreir <jsobreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 15:00:12 by jsobreir          #+#    #+#             */
-/*   Updated: 2025/03/25 15:00:13 by jsobreir         ###   ########.fr       */
+/*   Updated: 2025/04/21 13:11:27 by jsobreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
-// Static member initialization
+
 char ScalarConverter::_c_ret;
 int ScalarConverter::_i_ret;
 float ScalarConverter::_f_ret;
@@ -30,7 +30,11 @@ ScalarConverter::ScalarConverter(ScalarConverter const & other) {
 
 ScalarConverter &ScalarConverter::operator=(ScalarConverter const &other) {
     if (this != &other) {
-        // Copy the data members from other to this
+		_d_ret = other._d_ret;
+		_i_ret = other._i_ret;
+		_f_ret = other._f_ret;
+		_d_ret = other._d_ret;
+		_type = other._type;
     }
     return *this;
 }
@@ -46,7 +50,8 @@ void ScalarConverter::convertChar(std::string string) {
 }
 
 void ScalarConverter::convertInt(std::string string) {
-	
+
+	// Create input string stream from string and extract the int part.	
 	std::istringstream(string) >> _i_ret;
 	_c_ret = _i_ret;
 	_f_ret = static_cast <float> (_i_ret);
@@ -83,7 +88,6 @@ void ScalarConverter::convert(const std::string &string) {
 	else if (_type == DOUBLE)
 		convertDouble(string);
 
-	std::cout << "Type: " << _type << std::endl;
 	if (_c_ret == 0 && _type != NAN)
 		std::cout << "char: Non displayable" << std::endl;
 	else if (!isprint(_c_ret))
@@ -177,10 +181,3 @@ bool ScalarConverter::isDouble(std::string in) {
 	return false;
 }
 
-// int	ScalarConverter::handleInput(const std::string in) {
-
-// 	int len = in.size();
-// 	if (len == 1 && in < "0" && in > "9")
-// 		return CHAR;
-// 	if ()
-// }

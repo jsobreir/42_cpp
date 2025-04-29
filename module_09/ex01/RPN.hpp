@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Base.hpp                                           :+:      :+:    :+:   */
+/*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsobreir <jsobreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/25 15:00:46 by jsobreir          #+#    #+#             */
-/*   Updated: 2025/04/21 13:22:57 by jsobreir         ###   ########.fr       */
+/*   Created: 2025/04/22 12:59:54 by jsobreir          #+#    #+#             */
+/*   Updated: 2025/04/22 13:24:03 by jsobreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
+
 #include <iostream>
-#include <cstdlib>
-#include <ctime>
+#include <stack>
 
-class Base {
-	public:
-		virtual ~Base();
-} ;
-
-Base *generate(void);
-void identify(Base *p);
-void identify(Base &p);
+class RPN {
+    private:
+        int _result;
+        std::stack<char> _stack;
+    public:
+        RPN();
+        RPN(RPN const &other);
+        RPN &operator=(RPN const &other);
+        ~RPN();
+        void fillStack(char *argv);
+        void execute(std::stack<int> stack);
+};

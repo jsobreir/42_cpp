@@ -1,8 +1,8 @@
 CC = c++
 
-SRC = main.cpp BitcoinExchange.cpp
+SRC = main.cpp RPN.cpp
 
-NAME = btc
+NAME = RPN
 
 FLAGS =  -std=c++98 -g -Wall -Wextra -Werror -o
 
