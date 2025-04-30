@@ -6,7 +6,7 @@
 /*   By: jsobreir <jsobreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 12:59:54 by jsobreir          #+#    #+#             */
-/*   Updated: 2025/04/22 13:24:03 by jsobreir         ###   ########.fr       */
+/*   Updated: 2025/04/30 14:56:53 by jsobreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,17 @@
 
 #include <iostream>
 #include <stack>
+#include <cstdlib>
 
 class RPN {
     private:
         int _result;
-        std::stack<char> _stack;
+        std::stack<int> _stack;
     public:
         RPN();
         RPN(RPN const &other);
         RPN &operator=(RPN const &other);
         ~RPN();
         void fillStack(char *argv);
-        void execute(std::stack<int> stack);
+        void execute(std::string str);
 };

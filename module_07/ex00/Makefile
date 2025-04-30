@@ -5,7 +5,7 @@ INC = -I$(ROOT)/includes
 VPATH = src includes
 RM = rm -rf
 
-NAME = convert
+NAME = templates
 SRC = main.cpp
 OBJ_DIR = obj
 OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
