@@ -12,10 +12,14 @@
 
 #include "Span.hpp"
 
-Span::Span () { };
+Span::Span () {
+	_N = 0;
+	_N_ocupied = 0;
+};
 
 Span::Span (int N) {
 	_N = N;
+	_N_ocupied = 0;
 };
 
 Span::Span (const Span & other) {
@@ -25,13 +29,16 @@ Span::Span (const Span & other) {
 Span &Span::operator=(Span const &other) {
 	if (this != &other) {
 		_N = other._N;
+		_N_ocupied = other._N_ocupied;
 	}
 	return (*this);
 };
 
 void Span::addNumber (long unsigned int number) {
-	if (_span.size() < number)
+	if (_N_ocupied < _N) {
 		_span.insert(_span.end(), number);
+		_N_ocupied++;
+	}
 	else
 		throw NoMoreSpaceException();
 } ;
@@ -57,7 +64,11 @@ int Span::longestSpan () {
 };
 
 void Span::addMultipleNumber(std::vector<int> range) {
-	_span.insert(_span.end(), range.begin(), range.end());
+	if (range.size() + _N_ocupied <= _N) {
+		_span.insert(_span.end(), range.begin(), range.end());
+		_N_ocupied += range.size();
+	} else
+		throw NoMoreSpaceException();
 }
 
 std::vector<int> Span::getSpan(void) const {

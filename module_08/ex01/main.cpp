@@ -27,7 +27,7 @@ int main()
 	}
 	{
 		std::cout << "\n------- Test 2 -------" << std::endl;
-		Span sp = Span(5);
+		Span sp = Span(10);
 		sp.addNumber(6);
 		sp.addNumber(3);
 		sp.addNumber(17);
@@ -44,12 +44,21 @@ int main()
 	}
 	{
 		std::cout << "\n------- Test 3 -------" << std::endl;
-		Span sp = Span(10000);
+		Span sp = Span(100);
 		std::vector<int> v(100, 42);
 		sp.addMultipleNumber(v);
 		std::vector<int> c = sp.getSpan();
 		for (unsigned int i = 0; i < v.size(); i++) {
 			std::cout << v[i] << ", ";
 		}
+	}
+		{
+		std::cout << "\n------- Test 4 -------" << std::endl;
+		Span sp = Span(100000);
+		for (int i = 0; i < 100000; i++)
+			sp.addNumber(rand() % 100);
+		std::vector<int> c = sp.getSpan();
+		std::cout << sp.shortestSpan() << std::endl;
+		std::cout << sp.longestSpan() << std::endl;
 	}
 }

@@ -16,7 +16,7 @@
 
 int main (void)
 {
-	int arr[] = {1, 3, 2, 56, 4};
+	int arr[] = {1, 3, 1, 56, 2};
 	std::vector<int> vector(arr, arr + sizeof(arr)/sizeof(arr[0]));
 	try {
 		std::cout << "first occurrence: " << *easyfind(vector, 2) << std::endl;

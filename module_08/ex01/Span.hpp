@@ -14,10 +14,13 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cstdlib>
+#include <ctime>  
 
 class Span {
 	private:
 		unsigned int _N;
+		unsigned int _N_ocupied;
 		std::vector<int> _span;
 	public:
 		Span ();
