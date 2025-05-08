@@ -1,4 +1,4 @@
-* ************************************************************************** */
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.cpp                                       :+:      :+:    :+:   */
@@ -6,14 +6,14 @@
 /*   By: jsobreir <jsobreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/02 19:30:06 by jsobreir          #+#    #+#             */
-/*   Updated: 2025/05/08 01:01:54 by jsobreir         ###   ########.fr       */
+/*   Updated: 2025/05/08 15:35:04 by jsobreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
 PmergeMe::PmergeMe() {
-	std::cout << "Initialize PmergeMe with a vector of numbers!" << std::endl;
+	// std::cout << "Initialize PmergeMe with a vector of numbers!" << std::endl;
 }
 
 PmergeMe::PmergeMe(std::vector<int> &vec) {

@@ -6,7 +6,7 @@
 /*   By: jsobreir <jsobreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 19:32:57 by jsobreir          #+#    #+#             */
-/*   Updated: 2025/04/09 18:10:44 by jsobreir         ###   ########.fr       */
+/*   Updated: 2025/05/08 16:23:11 by jsobreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int main()
 			std::cout << v[i] << ", ";
 		}
 	}
-		{
+	{
 		std::cout << "\n------- Test 4 -------" << std::endl;
 		Span sp = Span(100000);
 		for (int i = 0; i < 100000; i++)
@@ -60,5 +60,12 @@ int main()
 		std::vector<int> c = sp.getSpan();
 		std::cout << sp.shortestSpan() << std::endl;
 		std::cout << sp.longestSpan() << std::endl;
+	}
+	{
+		std::cout << "\n------- Test 5 -------" << std::endl;
+		Span sp = Span(2);
+		sp.addNumber(1);
+		sp.shortestSpan();
+		// sp.longestSpan();
 	}
 }
