@@ -1,6 +1,6 @@
 CC = c++
 
-SRC = main.cpp RPN.cpp
+SRC = main.cpp PmergeMe.cpp
 
 NAME = PMergeMe
 
