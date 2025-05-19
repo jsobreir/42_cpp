@@ -6,7 +6,7 @@
 /*   By: jsobreir <jsobreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/02 19:30:06 by jsobreir          #+#    #+#             */
-/*   Updated: 2025/05/09 19:23:18 by jsobreir         ###   ########.fr       */
+/*   Updated: 2025/05/19 18:58:30 by jsobreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 PmergeMe::PmergeMe() {
 	_order = 0;
-	std::cout << "Initialize PmergeMe with a vector of numbers!" << std::endl;
 }
 
 PmergeMe::PmergeMe(std::vector<int> &vec) {
@@ -44,4 +43,16 @@ PmergeMe::~PmergeMe() {
 
 const char* PmergeMe::Exception::what() const throw() {
 	return "Error!";
+}
+
+int PmergeMe::calculate_jacobsthal(int n) {
+	if (n == 0) return 0;
+	if (n == 1) return 1;
+	int j0 = 0, j1 = 1, jn = 0;
+	for (int i = 2; i <= n; ++i) {
+		jn = j1 + 2 * j0;
+		j0 = j1;
+		j1 = jn;
+	}
+	return jn;
 }

@@ -6,7 +6,7 @@
 /*   By: jsobreir <jsobreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 12:46:41 by jsobreir          #+#    #+#             */
-/*   Updated: 2025/05/08 14:39:15 by jsobreir         ###   ########.fr       */
+/*   Updated: 2025/05/16 20:07:04 by jsobreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,5 @@ int main(void)
 			std::cout << *it << std::endl;
 			++it;
 		}
-		return 0;
 	}
 }
