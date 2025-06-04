@@ -6,7 +6,7 @@
 /*   By: jsobreir <jsobreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 15:54:42 by jsobreir          #+#    #+#             */
-/*   Updated: 2025/04/22 12:49:13 by jsobreir         ###   ########.fr       */
+/*   Updated: 2025/06/02 12:02:53 by jsobreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,12 @@ BitcoinExchange::BitcoinExchange(BitcoinExchange const & other) {
 
 BitcoinExchange &BitcoinExchange::operator=(BitcoinExchange const & other) {
     if (this != &other) {
+        _map = other._map;
     }
     return *this;
 }
 
-BitcoinExchange::~BitcoinExchange() {
-    
-}
+BitcoinExchange::~BitcoinExchange() { }
 
 
 void BitcoinExchange::printValues() {
@@ -39,8 +38,10 @@ void BitcoinExchange::printValues() {
 void BitcoinExchange::fillValues(std::string fn) {
     std::ifstream db;
     db.open(fn.c_str());
-    if (!db)
-        std::cout << "Error, could not open file." << std::endl;
+    if (!db) {
+        std::cout << "Error, could not open data file." << std::endl;
+        throw std::exception();
+    }
     std::string date;
     std::string rate_s;
     double rate_i;
@@ -64,6 +65,10 @@ bool BitcoinExchange::checkValidDate(std::string &date) {
 void BitcoinExchange::convert(std::string in) {
     std::ifstream inputf;
     inputf.open(in.c_str());
+    if (!inputf) {
+        std::cout << "Error, could not open input file." << std::endl;
+        throw std::exception();   
+    }
     std::string line;
     std::getline(inputf, line);
     while (std::getline(inputf, line)) {

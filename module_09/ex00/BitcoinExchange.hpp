@@ -6,7 +6,7 @@
 /*   By: jsobreir <jsobreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 15:54:40 by jsobreir          #+#    #+#             */
-/*   Updated: 2025/04/22 12:38:54 by jsobreir         ###   ########.fr       */
+/*   Updated: 2025/05/28 15:53:49 by jsobreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <sstream>
 #include <string>
 #include <map>
+#include <fstream>
 
 class BitcoinExchange {
     public:

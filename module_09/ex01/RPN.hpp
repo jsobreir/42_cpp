@@ -6,7 +6,7 @@
 /*   By: jsobreir <jsobreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 12:59:54 by jsobreir          #+#    #+#             */
-/*   Updated: 2025/04/30 14:56:53 by jsobreir         ###   ########.fr       */
+/*   Updated: 2025/05/28 15:52:49 by jsobreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 #include <iostream>
 #include <stack>
-#include <cstdlib>
 
 class RPN {
     private:

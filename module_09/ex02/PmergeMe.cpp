@@ -6,7 +6,7 @@
 /*   By: jsobreir <jsobreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/02 19:30:06 by jsobreir          #+#    #+#             */
-/*   Updated: 2025/05/19 18:58:30 by jsobreir         ###   ########.fr       */
+/*   Updated: 2025/05/28 15:58:00 by jsobreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,7 @@ PmergeMe &PmergeMe::operator=(PmergeMe const &other) {
     return *this;
 }
 
-PmergeMe::~PmergeMe() {
-
-}
+PmergeMe::~PmergeMe() { }
 
 const char* PmergeMe::Exception::what() const throw() {
 	return "Error!";

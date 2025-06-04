@@ -6,15 +6,13 @@
 /*   By: jsobreir <jsobreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:02:29 by jsobreir          #+#    #+#             */
-/*   Updated: 2025/04/30 14:59:52 by jsobreir         ###   ########.fr       */
+/*   Updated: 2025/05/28 15:57:28 by jsobreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
 
-RPN::RPN() {
-
-}
+RPN::RPN() { }
 
 RPN::RPN(RPN const &other) {
     *this = other;
@@ -28,9 +26,7 @@ RPN &RPN::operator=(RPN const &other) {
     return *this;
 }
 
-RPN::~RPN() {
-
-}
+RPN::~RPN() { }
 
 void RPN::fillStack(char *argv) {
     std::string string(argv);
@@ -42,43 +38,6 @@ void RPN::fillStack(char *argv) {
         // std::cout << _stack.top() << std::endl;
     }
 }
-
-// void RPN::execute() {
-//     int current;
-//     int prev;
-//     int pprev;
-    
-//     pprev = _stack.top();
-//     if (!_stack.empty())
-//         _stack.pop();
-//     prev = _stack.top();
-//     if (!_stack.empty())
-//         _stack.pop();
-//     current = _stack.top();
-//     if (!_stack.empty())
-//         _stack.pop();
-//     pprev -= 48;
-//     prev -= 48;
-//     while (current) {
-//         if (std::abs(current) == '*')
-//             pprev *= prev;
-//         else if (std::abs(current) == '+')
-//             pprev += prev;
-//         else if (std::abs(current) == '-')
-//             pprev -= prev;
-//         else if (std::abs(current) == '/')
-//             pprev /= prev;
-//         else if (current - 48 > 0 && current - 48 <= 9)
-//             prev = current - 48;
-//         if (!_stack.empty()) {
-//             current = _stack.top();
-//             _stack.pop();
-//         }   
-//         else
-//             break;
-//     }
-//     std::cout << pprev << std::endl;
-// }
 
 void RPN::execute(std::string str) {
     for (std::string::iterator it = str.begin(); it != str.end(); ) {
@@ -118,6 +77,10 @@ void RPN::execute(std::string str) {
             std::cerr << "Error: Invalid character." << std::endl;
             return ;
         }
+    }
+    if (_stack.size() > 1) {
+        std::cout << "Error!" << std::endl;
+        return ;
     }
     std::cout << _stack.top() << std::endl;_stack.pop();
 }

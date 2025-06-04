@@ -6,7 +6,7 @@
 /*   By: jsobreir <jsobreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/02 16:50:12 by jsobreir          #+#    #+#             */
-/*   Updated: 2025/05/19 19:03:26 by jsobreir         ###   ########.fr       */
+/*   Updated: 2025/06/02 14:16:01 by jsobreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include <sstream>
 #include <string>
 #include <cmath>
+
+#define DEBUG 0
 
 class PmergeMe {
     private:
@@ -44,16 +46,20 @@ Container PmergeMe::sort(Container vec) {
 	_order++;
 	typename Container::iterator it = vec.begin();
 	typename Container::iterator next = it;
-	std::cout << "Recursion Level = " << _order << std::endl;
-	if (it == vec.end()) {
-		std::cerr << "Error!" << std::endl;
-		throw Exception();
-	}
-	std::cout << "Main = ";
-	for (typename Container::iterator it = vec.begin(); it != vec.end(); ++it) {
-		std::cout << *it << " ,";
-	}
-	std::cout << std::endl;
+	
+	#if DEBUG
+		std::cout << "Recursion Level = " << _order << std::endl;
+		if (it == vec.end()) {
+			std::cerr << "Error!" << std::endl;
+			throw Exception();
+		}
+		std::cout << "Main = ";
+		for (typename Container::iterator it = vec.begin(); it != vec.end(); ++it) {
+			std::cout << *it << " ,";
+		}
+		std::cout << std::endl;
+	#endif
+	
 	while (it != vec.end()) {
 		next = it;
 		next++;
@@ -69,17 +75,21 @@ Container PmergeMe::sort(Container vec) {
 			b.push_back(*it); 
 			a.push_back(*next); 
 		}
-		std::cout << "a = " << a.back() << std::endl;
-		std::cout << "b = " << b.back() << std::endl;
+		#if DEBUG
+			std::cout << "a = " << a.back() << std::endl;
+			std::cout << "b = " << b.back() << std::endl;
+		#endif
 		it++;
 		it++;
 	}
-	std::cout << "Remaining = ";
-	for (typename Container::iterator it = remaining.begin(); it != remaining.end(); ++it) {
-		std::cout << *it << " ,";
-	}
-	std::cout << std::endl;
-	if (a.size() > 2)
+	#if DEBUG
+		std::cout << "Remaining = ";
+		for (typename Container::iterator it = remaining.begin(); it != remaining.end(); ++it) {
+			std::cout << *it << " ,";
+		}
+		std::cout << std::endl;
+	#endif
+	if (a.size() >= 2)
 		a = sort(a);
 	return insert_sort(a, b, remaining);
 }
@@ -87,49 +97,54 @@ Container PmergeMe::sort(Container vec) {
 template <typename Container>
 Container PmergeMe::insert_sort(Container &a, Container &b, Container &c) {
 	Container main, pend;
-	main.push_back(b[0]);
-	main.push_back(a[0]);
-	for (typename Container::iterator it = a.begin() + 1; it != a.end(); it++) {
+	for (typename Container::iterator it = a.begin(); it != a.end(); it++) {
 		main.push_back(*it);
 	}
+	typename Container::iterator pos = std::lower_bound(main.begin(), main.end(), b[0]);
+	main.insert(pos, b[0]);
 	for (typename Container::iterator it = b.begin() + 1 ; it != b.end(); it++) {
 		pend.push_back(*it);
 	}
-	std::cout << "Main and Pend -------" << std::endl;
-	std::cout << "main = ";
-	for (typename Container::iterator it = main.begin(); it != main.end(); ++it) {
-		std::cout << *it << " ,";
-	}
-	std::cout << std::endl;
-	std::cout << "pend = ";
-	for (typename Container::iterator it = pend.begin(); it != pend.end(); ++it) {
-		std::cout << *it << " ,";
-	}
-	std::cout << std::endl;
-	int n = 0;
+	#if DEBUG
+		std::cout << "Main and Pend -------" << std::endl;
+		std::cout << "main = ";
+		for (typename Container::iterator it = main.begin(); it != main.end(); ++it) {
+			std::cout << *it << " ,";
+		}
+		std::cout << std::endl;
+		std::cout << "pend = ";
+		for (typename Container::iterator it = pend.begin(); it != pend.end(); ++it) {
+			std::cout << *it << " ,";
+		}
+		std::cout << std::endl;
+	#endif
+	int n = 2;
 	std::vector<int> j_indices;
+
 	while (true) {
 		int jacob = calculate_jacobsthal(n);
-		if ((unsigned long)jacob >= pend.size())
+		if ((unsigned int)jacob >= pend.size())
 			break;
 		j_indices.push_back(jacob);
 		n++;
 	}
-	// std::cout << "Before Insertion -------" << std::endl;
-	// std::cout << "a = ";
-	// for (typename Container::iterator it = a.begin(); it != a.end(); ++it) {
-	// 	std::cout << *it << " ,";
-	// }
-	// std::cout << std::endl;
-	// std::cout << "b = ";
-	// for (typename Container::iterator it = b.begin(); it != b.end(); ++it) {
-	// 	std::cout << *it << " ,";
-	// }
-	// std::cout << std::endl;
+
+	bool *inserted = new bool[pend.size()];
+	for (size_t i = 0; i < pend.size(); ++i)
+		inserted[i] = false;
+
+	for (size_t i = 0; i < j_indices.size(); ++i)
+		inserted[j_indices[i]] = true;
+
+	for (size_t i = 0; i < pend.size(); ++i) {
+		if (!inserted[i])
+			j_indices.push_back(i);
+	}
+
+	delete[] inserted;
 
 	for (typename std::vector<int>::iterator it = j_indices.begin(); it != j_indices.end(); it++) {
 		typename Container::iterator pos = std::lower_bound(main.begin(), main.end(), pend[*it]);
-		std::cout << *it << std::endl;
 		if ((unsigned long)*it >= pend.size())
 			throw Exception();
 		main.insert(pos, pend[*it]);
@@ -138,12 +153,28 @@ Container PmergeMe::insert_sort(Container &a, Container &b, Container &c) {
 		typename Container::iterator pos = std::lower_bound(main.begin(), main.end(), *it);
 		main.insert(pos, *it);
 	}
-	std::cout << "After Insertion -------" << std::endl;
-	std::cout << "main = ";
-	for (typename Container::iterator it = main.begin(); it != main.end(); ++it) {
-		std::cout << *it << " ,";
-	}
-	std::cout << std::endl;
-	std::cout << std::endl;
+	#if DEBUG
+		std::cout << "After Insertion -------" << std::endl;
+		std::cout << "main = ";
+		for (typename Container::iterator it = main.begin(); it != main.end(); ++it) {
+			std::cout << *it << " ,";
+		}
+		std::cout << std::endl;
+		std::cout << std::endl;
+	#endif
 	return main;
+}
+
+template<typename Iterator>
+bool is_sorted(Iterator begin, Iterator end) {
+    if (begin == end) return true;
+    Iterator next = begin;
+    ++next;
+    while (next != end) {
+        if (*next < *begin)
+            return false;
+        ++begin;
+        ++next;
+    }
+    return true;
 }
